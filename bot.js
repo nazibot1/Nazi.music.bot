@@ -33,7 +33,7 @@ client.on('message', async msg =>{
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-    if(command === `ping`) {
+    if(command === `بينق`) {
     let embed = new Discord.RichEmbed()
     .setColor(3447003)
     .setTitle("Pong!!")
@@ -55,7 +55,7 @@ client.on('message', async msg =>{
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-    if(command === `avatar`){
+    if(command === `افتار`){
 	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
         let mentions = msg.mentions.members.first()
         if(!mentions) {
@@ -99,7 +99,7 @@ client.on('message', async msg => {
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-	if (command === `play`) {
+	if (command === `شغل`) {
 		const voiceChannel = msg.member.voiceChannel;
         
         if (!voiceChannel) return msg.channel.send("I can't find you in any voice channel!");
@@ -179,7 +179,7 @@ client.on('message', async msg => {
             
         }
         
-	} else if (command === `skip`) {
+	} else if (command === `سكيب`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
         if (!serverQueue) return msg.channel.send("There is no Queue to skip!!");
@@ -187,7 +187,7 @@ client.on('message', async msg => {
 		serverQueue.connection.dispatcher.end('Ok, skipped!');
         return undefined;
         
-	} else if (command === `stop`) {
+	} else if (command === `وقف`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
         if (!serverQueue) return msg.channel.send("There is no Queue to stop!!");
@@ -196,7 +196,7 @@ client.on('message', async msg => {
 		serverQueue.connection.dispatcher.end('Ok, stopped & disconnected from your Voice channel');
         return undefined;
         
-	} else if (command === `vol`) {
+	} else if (command === `صوت`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
 		if (!serverQueue) return msg.channel.send('You only can use this command while music is playing!');
@@ -207,7 +207,7 @@ client.on('message', async msg => {
         
         return msg.channel.send(`Volume Now is **${args[1]}**`);
 
-	} else if (command === `np`) {
+	} else if (command === `اسم الاغنية`) {
 
 		if (!serverQueue) return msg.channel.send('There is no Queue!');
 		const embedNP = new Discord.RichEmbed()
@@ -226,14 +226,14 @@ client.on('message', async msg => {
 **Now playing :** **${serverQueue.songs[0].title}**`)
         .setColor("#f7abab")
 		return msg.channel.sendEmbed(embedqu);
-	} else if (command === `pause`) {
+	} else if (command === `وقف`) {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
 			return msg.channel.send('Ok, paused');
 		}
 		return msg.channel.send('There is no Queue to Pause!');
-	} else if (command === "resume") {
+	} else if (command === "كمل") {
 
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
@@ -313,7 +313,7 @@ function play(guild, song) {
 
 
 client.on('message', message => {
-    if (message.content === 'help') {
+    if (message.content === 'مساعدة') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر الميوزك...**')
         .setDescription('**برفكس البوت (N)**')
@@ -331,13 +331,13 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content === 'general_commands') {
+    if (message.content === 'جميع الاوامر') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر عامة...**')
         .addField('avatar', "افاتار الشخص المطلوب")
         .addField('gif', 'البحث عن جيف انت تطلبه')
         .addField('ping', 'معرفة ping البوت')
-        .setFooter('المزيد قريبا ان شاء الله!')
+        .setFooter('المزيد قريبا!')
       message.channel.send(helpEmbed);
     }
 });
