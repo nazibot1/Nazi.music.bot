@@ -342,6 +342,6 @@ client.on('message', message => {
     }
 });
 
-client.login(process.env.NDc0NTY1NzA5MTQ2NDg4ODMy.DlfkJg.Ju8q2tIWT5ksizQRd-nxsQlBcvA
+client.login(process.env.NDc0NTY1ODUwMjU5NzgzNjgx.Dlf5kA.swGDz3MQoCwV4dCXhgmxVrEHs1w
 );
 
